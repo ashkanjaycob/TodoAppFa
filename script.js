@@ -72,7 +72,7 @@ searchBox.addEventListener("input", () => {
     }
   });
 
-  function saveTodos() {
+function saveTodos() {
     const todos = [];
     const items = todoList.getElementsByTagName("li");
   
@@ -83,4 +83,32 @@ searchBox.addEventListener("input", () => {
     }
   
     localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+// Load todos Based on Add todo 
+function loadTodos() {
+    const storedTodos = JSON.parse(localStorage.getItem("todos"));
+    if (storedTodos && Array.isArray(storedTodos)) {
+      storedTodos.forEach((todo) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+                <span>${todo.text}</span>
+          `;
+        const span = document.createElement("SPAN");
+        const txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+  
+        if (todo.checked) {
+          li.classList.add("line-through");
+        }
+        todoList.appendChild(li);
+      });
+  
+      updateCloseButtons();
+    }
   }
+  
+// For First Render
+loadTodos();
