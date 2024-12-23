@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f8fa;
+    margin: 8px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+  }
+
+.container {
+    background-color: #d1d0d0;
+    border-radius: 12px;
+    padding: 20px;
+    width: 660px;
+    text-align: start;
+}
+
+.inputsContainer {
+    background-color: rebeccapurple;
+    padding: 8px;
+    display: flex;
+}
+
+.inputsContainer input {
+    border: none;
+    outline: none;
+}
