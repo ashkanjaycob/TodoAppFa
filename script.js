@@ -25,7 +25,7 @@ AddBtn.addEventListener("click", () => {
     updateCloseButtons();
     saveTodos();
   } else {
-    alert(".لطفا مقدار متن را وارد کنید ");
+    alert("لطفا مقدار متن تودو را وارد کنید ");
   }
 });
 
