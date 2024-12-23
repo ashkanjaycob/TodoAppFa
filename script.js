@@ -33,10 +33,19 @@ AddBtn.addEventListener("click", () => {
 function updateCloseButtons() {
   const close = document.getElementsByClassName("close");
   for (let i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
+    close[i].onclick = function (event) {
+      event.stopPropagation(); // For Stop propagate line through
       const li = this.parentElement;
-      li.remove(); // Remove element for Save in Local Storage
-      saveTodos();
+      const todoText = li.querySelector("span").textContent; // Get the text of the todo
+      // Add Todo Confrimation
+      const confirmDelete = confirm(
+        `آیا مطمئن هستید که می‌خواهید این آیتم را حذف کنید؟\n"${todoText}"`
+      );
+
+      if (confirmDelete) {
+        li.remove();
+        saveTodos();
+      }
     };
   }
 }
@@ -52,14 +61,13 @@ todoList.addEventListener("click", (event) => {
 
 // Clear all
 clearTodos.addEventListener("click", () => {
-    if (todoList.children.length === 0) { 
-      alert("هنوز هیچ تودویی وارد نشده است !"); 
-    } else {
-      todoList.innerHTML = "";
-      saveTodos();
-    }
-  });
-  
+  if (todoList.children.length === 0) {
+    alert("هنوز هیچ تودویی وارد نشده است !");
+  } else {
+    todoList.innerHTML = "";
+    saveTodos();
+  }
+});
 
 searchBox.addEventListener("input", () => {
   const filter = searchBox.value.toLowerCase();
