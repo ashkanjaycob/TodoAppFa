@@ -23,6 +23,7 @@ AddBtn.addEventListener("click", () => {
     TodoInput.value = "";
 
     updateCloseButtons();
+    saveTodos();
   } else {
     alert(".لطفا مقدار متن را وارد کنید ");
   }
@@ -35,6 +36,7 @@ function updateCloseButtons() {
     close[i].onclick = function () {
       var div = this.parentElement;
       div.style.display = "none";
+      saveTodos();
     };
   }
 }
@@ -44,12 +46,14 @@ todoList.addEventListener("click", (event) => {
   const li = event.target.closest("li");
   if (li) {
     li.classList.toggle("line-through");
+    saveTodos();
   }
 });
 
 // Clear all
 clearTodos.addEventListener("click", () => {
   todoList.innerHTML = "";
+  saveTodos();
 });
 
 
@@ -68,4 +72,15 @@ searchBox.addEventListener("input", () => {
     }
   });
 
-    
+  function saveTodos() {
+    const todos = [];
+    const items = todoList.getElementsByTagName("li");
+  
+    for (let i = 0; i < items.length; i++) {
+      const todoText = items[i].querySelector("span").textContent;
+      const isChecked = items[i].classList.contains("line-through");
+      todos.push({ text: todoText, checked: isChecked });
+    }
+  
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
