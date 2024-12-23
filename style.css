@@ -22,16 +22,22 @@ body {
 }
 
 .container {
-  position: relative;
-  background-color: #d1d0d0;
+  background-color: #78b3ce;
+  color: #fff;
   border-radius: 12px;
   padding: 20px;
   width: 660px;
   text-align: start;
 }
 
+.container h1 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #fff;
+}
+
 .inputsContainer {
-  padding: 8px;
+  align-items: center;
+  justify-content: space-between;
   display: flex;
 }
 
@@ -42,6 +48,7 @@ body {
   min-width: 460px;
   padding: 8px;
   border-radius: 20px;
+  margin: 4px 0px;
 }
 
 .inputsContainer button {
@@ -59,13 +66,23 @@ body {
 }
 
 #showTodos li {
+  background-color: #fff;
+  color: grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(97, 95, 95);
+  border-radius: 40px;
   cursor: pointer;
-  padding: 4px;
+  padding: 4px 20px;
   margin: 8px 0px;
 }
 
+#showTodos :hover {
+  background-color: #f3efef;
+}
+
 #clearTodos {
-  position: absolute;
   left: 0;
   bottom: 0;
   margin: 4px;
