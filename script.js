@@ -15,3 +15,11 @@ AddBtn.addEventListener("click", () => {
     alert(".لطفا مقدار متن را وارد کنید ");
   }
 });
+
+// Adding Checked to A Todo
+todoList.addEventListener("click", (event) => {
+  const li = event.target.closest("li");
+  if (li) {
+    li.classList.toggle("line-through");
+  }
+});
