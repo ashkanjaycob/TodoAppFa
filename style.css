@@ -34,7 +34,8 @@ body {
   display: flex;
 }
 
-.inputsContainer input {
+.inputsContainer input,
+.searchContainer input {
   border: none;
   outline: none;
   min-width: 460px;
@@ -47,4 +48,5 @@ body {
   border-radius: 20px;
   border: none;
   outline: none;
+  cursor: pointer;
 }
