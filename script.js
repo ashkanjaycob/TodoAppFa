@@ -2,6 +2,7 @@ const TodoInput = document.getElementById("inputTodo");
 const AddBtn = document.getElementById("addTodo");
 let todoList = document.getElementById("showTodos");
 const clearTodos = document.getElementById("clearTodos");
+const searchBox = document.getElementById("searchTodo"); 
 
 AddBtn.addEventListener("click", () => {
   const Text = TodoInput.value.trim();
@@ -50,3 +51,21 @@ todoList.addEventListener("click", (event) => {
 clearTodos.addEventListener("click", () => {
   todoList.innerHTML = "";
 });
+
+
+searchBox.addEventListener("input", () => {
+    const filter = searchBox.value.toLowerCase();
+    const items = todoList.getElementsByTagName("li");
+  
+    // Loop on Todos
+    for (let i = 0; i < items.length; i++) {
+      const itemText = items[i].textContent || items[i].innerText;
+      if (itemText.toLowerCase().indexOf(filter) > -1) {
+        items[i].style.display = "";
+      } else {
+        items[i].style.display = "none";
+      }
+    }
+  });
+
+    
