@@ -1,6 +1,7 @@
 const TodoInput = document.getElementById("inputTodo");
 const AddBtn = document.getElementById("addTodo");
-const todoList = document.getElementById("showTodos");
+let todoList = document.getElementById("showTodos");
+const clearTodos = document.getElementById("clearTodos");
 
 AddBtn.addEventListener("click", () => {
   const Text = TodoInput.value.trim();
@@ -22,4 +23,9 @@ todoList.addEventListener("click", (event) => {
   if (li) {
     li.classList.toggle("line-through");
   }
+});
+
+// Clear all 
+clearTodos.addEventListener("click", () => {
+  todoList.innerHTML = "";
 });
