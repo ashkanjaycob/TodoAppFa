@@ -50,3 +50,14 @@ body {
   outline: none;
   cursor: pointer;
 }
+
+#showTodos {
+  margin: 10px;
+  padding-top: 30px;
+}
+
+#showTodos li {
+  cursor: pointer;
+  padding: 4px;
+  margin: 8px 0px;
+}
