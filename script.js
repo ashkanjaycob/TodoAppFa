@@ -64,8 +64,14 @@ clearTodos.addEventListener("click", () => {
   if (todoList.children.length === 0) {
     alert("هنوز هیچ تودویی وارد نشده است !");
   } else {
-    todoList.innerHTML = "";
-    saveTodos();
+    const confirmDelete = confirm(
+      `آیا مطمئن هستید که می‌خواهید کل لیست را حذف کنید؟`
+    );
+
+    if (confirmDelete) {
+      todoList.innerHTML = "";
+      saveTodos();
+    }
   }
 });
 
