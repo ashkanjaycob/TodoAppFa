@@ -52,9 +52,14 @@ todoList.addEventListener("click", (event) => {
 
 // Clear all
 clearTodos.addEventListener("click", () => {
-  todoList.innerHTML = "";
-  saveTodos();
-});
+    if (todoList.children.length === 0) { 
+      alert("هنوز هیچ تودویی وارد نشده است !"); 
+    } else {
+      todoList.innerHTML = "";
+      saveTodos();
+    }
+  });
+  
 
 searchBox.addEventListener("input", () => {
   const filter = searchBox.value.toLowerCase();
